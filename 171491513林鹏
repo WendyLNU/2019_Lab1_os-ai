@@ -19,37 +19,41 @@ C语言有丰富的函数库可供调用
 
 题3： https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题3.png
 题4：https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题4.PNG
-
 #include<stdio.h>
-struct English{
+#include<stdlib.h> 
+
+struct Eiglish{
 	char letter;
-	struct English *next;
-	struct English *last;
-	 
-};
+	struct Eiglish *next;
+	
+}; 
 int main()
 {
-	struct English head,*p,*q,*tail,*j;
+	struct Eiglish head,tail,*p,*q;
 	int i;
-	j=&head;
-	j->next=p;
-	p->last=j;
-	j->last=NULL;
+	p=(struct Eiglish *)malloc(sizeof(struct Eiglish));
 	for(i=0;i<26;i++)
 	{
-	p=(struct English *)malloc(sizeof(struct English));
-	scanf("%c",&p->letter);
-	p->next=q;
-	q->last=p;
-	p=p->next;
-	p->next=tail;
-	} 
-	p=tail->last;
-	
-	
+		q=(struct Eiglish *)malloc(sizeof(struct Eiglish));
+		scanf("%c",&p->letter);
+		q->next=p;
+		p=q;
+		head.next=q;	
+	 } 
+	 p=head.next;
+	 p=p->next;
+	 for(i=0;i<26;i++)
+	 {
+	 	if(p->letter==' ')
+	 	p=p->next;
+	 	else
+	 	{
 		printf("%c",p->letter);
+	 	p=p->next;
+	 }
+	 }
 	
-
-	return 0;
 }
+
+
 
