@@ -1,1 +1,53 @@
+题1：
+1：
+汇编语言是面向具体CPU及其硬件结构的语言
+C语言可以做到硬件无关性
+2：
+汇编语言效率较高
+C语言效率相对较低
+3：
+汇编语言是非结构语言，可读性较弱
+C语言是结构语言，可读性较强
+4：
+汇编语言基本没有可移植性
+C言可移植性很强
+5：
+汇编语言没有函数库，所有代码需要自己组织
+C语言有丰富的函数库可供调用
+题2：
+ 
+题3： 
+题4：
+#include<stdio.h>
+struct English{
+	char letter;
+	struct English *next;
+	struct English *last;
+	 
+};
+int main()
+{
+	struct English head,*p,*q,*tail,*j;
+	int i;
+	j=&head;
+	j->next=p;
+	p->last=j;
+	j->last=NULL;
+	for(i=0;i<26;i++)
+	{
+	p=(struct English *)malloc(sizeof(struct English));
+	scanf("%c",&p->letter);
+	p->next=q;
+	q->last=p;
+	p=p->next;
+	p->next=tail;
+	} 
+	p=tail->last;
+	
+	
+		printf("%c",p->letter);
+	
+
+	return 0;
+}
 
