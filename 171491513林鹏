@@ -18,7 +18,8 @@ C语言有丰富的函数库可供调用
  https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题2.png
 
 题3： https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题3.png
-题4：
+题4：https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题4.PNG
+
 #include<stdio.h>
 struct English{
 	char letter;
