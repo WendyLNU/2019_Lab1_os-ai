@@ -15,7 +15,8 @@ C言可移植性很强
 汇编语言没有函数库，所有代码需要自己组织
 C语言有丰富的函数库可供调用
 题2：
- 
+ https://github.com/13lim-lin/2019_Lab1_os-ai/blob/13lim-lin-patch-1/题2.png
+
 题3： 
 题4：
 #include<stdio.h>
