@@ -1,0 +1,67 @@
+二叉树的深度优先遍历与广度优先遍历
+深度优先遍历：从某个节点开始，访问改节点的孩子，直到叶子节点
+广度优先遍历：从某个节点开始，访问该节点的兄弟，直到叶子节点
+#include "iostream"
+#include <stdlib.h>
+#include <malloc.h>
+#include <stack>
+#include <Queue>
+using namespace std;
+typedef struct Node{
+	char data;
+	struct Node* lchild;
+	struct Node* rchild;
+}*Tree;
+int index=0;
+void treeNodeConstructer (Tree &root,char data[])//建¨立ⅰ?一?个?二t叉?树骸?
+{
+	char e=data[index++];
+	if(e=='#') root=NULL; 
+	//如?果?输?入?# 则ò没?有瓺孩￠子哩?（辍?如?果?没?有瓺左哩?孩￠子哩?，?查é看′其?右?孩￠子哩?，?如?果?没?有瓺右?孩￠子哩?，?则ò返う?回?上?一?层?（辍?依皑?靠?栈?来ぁ?实害?现?）?）?
+	else  
+		{
+			root=(Node *)malloc(sizeof(Node));
+			root->data=e;
+			treeNodeConstructer(root->lchild,data);
+			treeNodeConstructer(root->rchild,data);
+	}
+}
+void DFS (Tree root)//深?度è优?先è遍括?历え?，?依皑?靠?栈?来ぁ?实害?现?
+{
+	stack <Node *>nodeStack;
+	nodeStack.push(root);
+	Node *node;
+	while(!nodeStack.empty()){
+		node=nodeStack.top();
+		cout<<node->data;
+		nodeStack.pop();
+		if(node->rchild) nodeStack.push(node->rchild);
+		if(node->lchild) nodeStack.push(node->lchild);
+	}
+}
+void BFS(Tree root)//广?度è优?先è遍括?历え?，?依皑?靠?队ó列来ぁ?实害?现?
+{
+
+	queue<Node *> nodeQueue;
+	nodeQueue.push(root);
+	Node *node;
+	while(!nodeQueue.empty())
+	{
+		node=nodeQueue.front();//返う?回?最?早?的?元a素?
+		nodeQueue.pop();
+		cout<<node->data;
+		if(node->lchild) nodeQueue.push(node->lchild);
+		if(node->rchild) nodeQueue.push(node->rchild);
+	}
+}
+int main(){
+	char data[15]={'A','B','D','#','#','E','#','#','C','F','#','#','G','#','#'};
+	Tree tree;
+	treeNodeConstructer(tree,data);
+	cout<<"深?度è优?先è遍括?历え?的?结á果?是?：阰";
+	DFS(tree);
+	cout<<endl;
+	cout<<"广?度è优?先è遍括?历え?的?结á果?是?：阰";
+	BFS(tree);
+	return 0;
+}
